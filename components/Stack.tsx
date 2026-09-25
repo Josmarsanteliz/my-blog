@@ -12,8 +12,8 @@ import {
   SiTailwindcss,
   SiNodedotjs,
 } from "react-icons/si";
-import { STACK } from "@/lib/data";
 import SectionHeader from "./SectionHeader";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const TECH_ICONS: Record<string, IconType> = {
   next: SiNextdotjs,
@@ -32,13 +32,15 @@ const cardVariants = {
 };
 
 export default function Stack() {
+  const { t } = useLanguage();
+
   return (
-    <section id="stack" className="bg-stone-50/80 py-24">
+    <section id="stack" className="bg-silver/25 py-24">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeader
-          eyebrow="Tecnologías"
-          title="Stack que domino"
-          subtitle="Herramientas modernas para construir productos rápidos, seguros y escalables."
+          eyebrow={t.stack.eyebrow}
+          title={t.stack.title}
+          subtitle={t.stack.subtitle}
         />
 
         <motion.div
@@ -48,17 +50,17 @@ export default function Stack() {
           transition={{ staggerChildren: 0.08 }}
           className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4"
         >
-          {STACK.map((item) => {
+          {t.stack.items.map((item) => {
             const Icon = TECH_ICONS[item.icon];
             return (
               <motion.div
                 key={item.name}
                 variants={cardVariants}
-                className="group rounded-2xl border border-stone-200 bg-white p-6 transition-all hover:-translate-y-1 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-600/5"
+                className="group rounded-2xl border border-silver bg-white p-6 transition-all hover:-translate-y-1 hover:border-paprika/50 hover:shadow-lg hover:shadow-paprika/10"
               >
-                <Icon className="h-8 w-8 text-stone-500 transition-colors group-hover:text-indigo-600" />
+                <Icon className="h-8 w-8 text-charcoal/70 transition-colors group-hover:text-paprika" />
                 <h3 className="mt-4 font-display font-semibold">{item.name}</h3>
-                <p className="mt-1 text-sm text-stone-500">{item.description}</p>
+                <p className="mt-1 text-sm text-charcoal/70">{item.description}</p>
               </motion.div>
             );
           })}

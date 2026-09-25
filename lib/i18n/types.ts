@@ -1,0 +1,159 @@
+// ============================================================
+// Tipo del diccionario. `es.ts` y `en.ts` deben declarar
+// exactamente estas claves: si falta una traducción, el
+// build de TypeScript falla.
+// ============================================================
+
+export type Language = "es" | "en";
+
+export type NavLink = {
+  href: string;
+  label: string;
+};
+
+export type StackItem = {
+  name: string;
+  description: string;
+  icon: string;
+};
+
+export type Plan = {
+  name: string;
+  price: number;
+  /** Muestra "Desde" antes del precio (ej: Desde $2.500). */
+  from?: boolean;
+  description: string;
+  features: string[];
+  featured: boolean;
+};
+
+export type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  gradient: string;
+  emoji: string;
+};
+
+export type Stat = {
+  value: number;
+  suffix: string;
+  label: string;
+};
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type Dictionary = {
+  site: {
+    name: string;
+    role: string;
+    email: string;
+    linkedin: string;
+    github: string;
+    /** Número en formato internacional SIN + ni espacios (wa.me/…). */
+    whatsapp: string;
+  };
+  nav: {
+    links: NavLink[];
+    cta: string;
+    menuOpen: string;
+    menuClose: string;
+    langSwitch: string;
+  };
+  hero: {
+    badge: string;
+    greeting: string;
+    creates: string;
+    words: string[];
+    pitch: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
+  stack: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: StackItem[];
+  };
+  pricing: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    badge: string;
+    perProject: string;
+    cta: string;
+    customTitle: string;
+    customLink: string;
+    /** Etiqueta "Desde" para planes con precio base. */
+    from: string;
+    groups: {
+      web: string;
+      software: string;
+    };
+    plans: Plan[];
+    softwarePlans: Plan[];
+  };
+  portfolio: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    more: string;
+    projects: Project[];
+  };
+  about: {
+    eyebrow: string;
+    heading: string;
+    /** Usa {name} como marcador para el nombre del propietario. */
+    p1: string;
+    p2: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    stats: Stat[];
+  };
+  faq: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    items: FaqItem[];
+  };
+  contact: {
+    title: string;
+    text: string;
+  };
+  modal: {
+    title: string;
+    subtitle: string;
+    close: string;
+    interestLabel: string;
+    interestWeb: string;
+    interestSoftware: string;
+    planLabel: string;
+    whatsappLabel: string;
+    orLabel: string;
+    /** Mensajes de WhatsApp. {plan} y {price} solo se usan si hay plan. */
+    waWeb: string;
+    waSoftware: string;
+    waWebPlan: string;
+    waSoftwarePlan: string;
+    form: {
+      name: string;
+      namePlaceholder: string;
+      email: string;
+      emailPlaceholder: string;
+      message: string;
+      messagePlaceholder: string;
+      submit: string;
+      sending: string;
+      success: string;
+      error: string;
+    };
+  };
+  footer: {
+    /** Usa {year} y {name} como marcadores. */
+    copyright: string;
+  };
+};

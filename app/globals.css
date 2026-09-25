@@ -3,6 +3,15 @@
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-space), var(--font-inter), ui-sans-serif, sans-serif;
+
+  /* Paleta Josmar */
+  --color-floral: #fffcf2;      /* Floral White — fondo base */
+  --color-silver: #ccc5b9;      /* Silver — bordes y divisores */
+  --color-charcoal: #403d39;    /* Charcoal Brown — texto cuerpo */
+  --color-carbon: #252422;      /* Carbon Black — títulos y fondos oscuros */
+  --color-paprika: #eb5e28;     /* Spicy Paprika — acento principal */
+  --color-paprika-light: #f07a45; /* acento en hover (mantiene AA) */
+  --color-paprika-deep: #c9491a;  /* acento en texto pequeño (AA) */
 }
 
 html {
@@ -10,7 +19,7 @@ html {
 }
 
 body {
-  @apply bg-white font-sans text-stone-900 antialiased;
+  @apply bg-floral font-sans text-carbon antialiased;
 }
 
 section[id] {
@@ -18,5 +27,5 @@ section[id] {
 }
 
 ::selection {
-  @apply bg-indigo-600 text-white;
+  @apply bg-paprika text-floral;
 }

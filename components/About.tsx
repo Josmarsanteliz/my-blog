@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { SITE, STATS } from "@/lib/data";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 function Counter({ to, suffix }: { to: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -30,7 +30,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
   return (
     <span
       ref={ref}
-      className="font-display text-4xl font-bold text-stone-900 sm:text-5xl"
+      className="font-display text-4xl font-bold text-carbon sm:text-5xl"
     >
       0{suffix}
     </span>
@@ -38,6 +38,8 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 }
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section id="sobre-mi" className="py-24">
       <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-2 lg:gap-20">
@@ -47,52 +49,46 @@ export default function About() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-indigo-600">
-            Sobre mí
+          <span className="text-xs font-semibold uppercase tracking-widest text-paprika-deep">
+            {t.about.eyebrow}
           </span>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
-            Construyo software que ayuda a tu negocio a crecer.
+            {t.about.heading}
           </h2>
-          <p className="mt-6 leading-relaxed text-stone-600">
-            Soy {SITE.name}, desarrollador freelance especializado en
-            aplicaciones web modernas. Trabajo con clientes de forma remota, de
-            principio a fin: entiendo tu idea, diseño la experiencia y
-            desarrollo el producto con Next.js, TypeScript y Supabase.
+          <p className="mt-6 leading-relaxed text-charcoal/80">
+            {t.about.p1.replace("{name}", t.site.name)}
           </p>
-          <p className="mt-4 leading-relaxed text-stone-600">
-            Mi prioridad es la comunicación clara, las entregas puntuales y un
-            software que se sienta rápido y profesional.
-          </p>
+          <p className="mt-4 leading-relaxed text-charcoal/80">{t.about.p2}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#contacto"
-              className="rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
+              className="rounded-full bg-paprika px-6 py-3 text-sm font-semibold text-carbon transition hover:bg-paprika-light"
             >
-              Trabajemos juntos
+              {t.about.ctaPrimary}
             </a>
             <a
-              href={SITE.linkedin}
+              href={t.site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-800 transition hover:border-stone-900"
+              className="rounded-full border border-silver px-6 py-3 text-sm font-semibold text-carbon transition hover:border-carbon"
             >
-              Ver LinkedIn
+              {t.about.ctaSecondary}
             </a>
           </div>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-6 self-center">
-          {STATS.map((stat, i) => (
+          {t.about.stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-3xl border border-stone-200 bg-white p-8 text-center"
+              className="rounded-3xl border border-silver bg-white p-8 text-center"
             >
               <Counter to={stat.value} suffix={stat.suffix} />
-              <p className="mt-2 text-sm font-medium text-stone-500">
+              <p className="mt-2 text-sm font-medium text-charcoal/70">
                 {stat.label}
               </p>
             </motion.div>

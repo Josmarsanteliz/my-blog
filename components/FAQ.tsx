@@ -3,24 +3,25 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
-import { FAQS } from "@/lib/data";
 import SectionHeader from "./SectionHeader";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t } = useLanguage();
 
   return (
-    <section id="faq" className="bg-stone-50/80 py-24">
+    <section id="faq" className="bg-silver/25 py-24">
       <div className="mx-auto max-w-3xl px-6">
         <SectionHeader
-          eyebrow="FAQ"
-          title="Preguntas frecuentes"
-          subtitle="Respuestas rápidas a las dudas más comunes antes de empezar un proyecto."
+          eyebrow={t.faq.eyebrow}
+          title={t.faq.title}
+          subtitle={t.faq.subtitle}
           center
         />
 
         <div className="mt-12 space-y-3">
-          {FAQS.map((faq, i) => {
+          {t.faq.items.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
               <motion.div
@@ -30,7 +31,7 @@ export default function FAQ() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 className={`overflow-hidden rounded-2xl border bg-white transition-colors ${
-                  isOpen ? "border-indigo-200" : "border-stone-200"
+                  isOpen ? "border-paprika/60" : "border-silver/70"
                 }`}
               >
                 <button
@@ -44,7 +45,7 @@ export default function FAQ() {
                   <motion.span
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
-                    className={isOpen ? "text-indigo-600" : "text-stone-400"}
+                    className={isOpen ? "text-paprika" : "text-charcoal/60"}
                   >
                     <FiChevronDown size={20} />
                   </motion.span>
@@ -60,7 +61,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="px-6 pb-5 text-sm leading-relaxed text-stone-600">
+                      <p className="px-6 pb-5 text-sm leading-relaxed text-charcoal/80">
                         {faq.answer}
                       </p>
                     </motion.div>

@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GeometricBackground from "@/components/GeometricBackground";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+import { ContactModalProvider } from "@/components/ContactModal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,10 +39,14 @@ export default function RootLayout(props: LayoutProps<"/">) {
       className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <GeometricBackground />
-        <Navbar />
-        <main className="flex-1">{props.children}</main>
-        <Footer />
+        <LanguageProvider>
+          <ContactModalProvider>
+            <GeometricBackground />
+            <Navbar />
+            <main className="flex-1">{props.children}</main>
+            <Footer />
+          </ContactModalProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

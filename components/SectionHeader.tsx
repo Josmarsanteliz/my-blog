@@ -23,14 +23,14 @@ export default function SectionHeader({
       transition={{ duration: 0.5 }}
       className={`max-w-2xl ${center ? "mx-auto text-center" : ""}`}
     >
-      <span className="text-xs font-semibold uppercase tracking-widest text-indigo-600">
+      <span className="text-xs font-semibold uppercase tracking-widest text-paprika-deep">
         {eyebrow}
       </span>
       <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
         {title}
       </h2>
       {subtitle ? (
-        <p className="mt-4 text-base text-stone-600 sm:text-lg">{subtitle}</p>
+        <p className="mt-4 text-base text-charcoal/75 sm:text-lg">{subtitle}</p>
       ) : null}
     </motion.div>
   );

@@ -81,13 +81,13 @@ type Shape = {
 
 // Figuras distribuidas por el viewport. Flotan y rotan en bucle infinito.
 const SHAPES: Shape[] = [
-  { type: "hexagon", left: "6%", top: "16%", size: 52, color: "text-indigo-400/30", float: 18, spin: 60, delay: 0 },
-  { type: "triangle", left: "88%", top: "12%", size: 40, color: "text-violet-400/30", float: 22, spin: 70, delay: 1.2 },
-  { type: "square", left: "12%", top: "78%", size: 36, color: "text-teal-400/30", float: 20, spin: 50, delay: 0.6 },
-  { type: "circle", left: "80%", top: "82%", size: 60, color: "text-amber-400/25", float: 24, spin: 80, delay: 2 },
-  { type: "plus", left: "65%", top: "6%", size: 26, color: "text-indigo-500/25", float: 16, spin: 60, delay: 0.3 },
-  { type: "diamond", left: "24%", top: "42%", size: 22, color: "text-fuchsia-400/25", float: 26, spin: 55, delay: 1.5 },
-  { type: "double-circle", left: "92%", top: "46%", size: 30, color: "text-sky-400/25", float: 19, spin: 65, delay: 0.9 },
+  { type: "hexagon", left: "6%", top: "16%", size: 52, color: "text-paprika/35", float: 18, spin: 60, delay: 0 },
+  { type: "triangle", left: "88%", top: "12%", size: 40, color: "text-silver/80", float: 22, spin: 70, delay: 1.2 },
+  { type: "square", left: "12%", top: "78%", size: 36, color: "text-charcoal/20", float: 20, spin: 50, delay: 0.6 },
+  { type: "circle", left: "80%", top: "82%", size: 60, color: "text-paprika/25", float: 24, spin: 80, delay: 2 },
+  { type: "plus", left: "65%", top: "6%", size: 26, color: "text-charcoal/30", float: 16, spin: 60, delay: 0.3 },
+  { type: "diamond", left: "24%", top: "42%", size: 22, color: "text-paprika/45", float: 26, spin: 55, delay: 1.5 },
+  { type: "double-circle", left: "92%", top: "46%", size: 30, color: "text-silver/70", float: 19, spin: 65, delay: 0.9 },
 ];
 
 export default function GeometricBackground() {
